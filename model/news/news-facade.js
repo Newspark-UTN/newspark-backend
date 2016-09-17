@@ -4,6 +4,7 @@ const newsSchema  = require('./news-schema');
 
 class NewsModel extends Model {
   find(query) {
+    query.articlesCount = { $gt: 1 };
     return this.Schema
     .find(query)
     .sort('-articlesCount')
