@@ -10,7 +10,7 @@ var smtpConfig = {
 };
 
 var mailOptions = {
-    from: '"Fred Foo 👥" <foo@blurdybloop.com>', // sender address
+    from: 'newspark.utn@gmail.com', // sender address
     to: 'kovalsky.nicolas@gmail.com, alanszp@gmail.com', // list of receivers
     subject: 'Nuevo contacto desde Newspark ✔', // Subject line
 };
@@ -21,8 +21,8 @@ class ContactFormController {
 
         mailOptions.from = 'newspark.utn@gmail.com';
         mailOptions.replyTo = req.body.email;
-        mailOptions.subject = 'Nuevo mensaje de ' + req.body.nombre + ' para Newspark';
-        mailOptions.text = req.body.mensaje || 'Contacto sin mensaje';
+        mailOptions.subject = 'Nuevo mensaje de ' + req.body.name + ' para Newspark';
+        mailOptions.text = req.body.message || 'Contacto sin mensaje';
 
         // send mail with defined transport object
         transporter.sendMail(mailOptions, function (error, info) {
